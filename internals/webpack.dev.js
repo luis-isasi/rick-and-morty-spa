@@ -8,19 +8,24 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js'
   },
+  mode: 'development',
   resolve: {
     extensions: ['.js']
   },
-  module:{
+  module: {
     rules: [
       {
         test: /\.js?$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: 'babel-loader'
           }
         ]
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       }
     ]
   },
@@ -35,5 +40,5 @@ module.exports = {
     contentBase: path.join(__dirname, 'dist'),
     compress: true,
     port: 9000
-  },
-}
+  }
+};

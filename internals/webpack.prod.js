@@ -8,19 +8,24 @@ module.exports = {
     path: path.resolve(__dirname, 'dist'),
     filename: 'main.js'
   },
+  mode: 'production',
   resolve: {
     extensions: ['.js']
   },
-  module:{
+  module: {
     rules: [
       {
         test: /\.js?$/,
         exclude: /node_modules/,
         use: [
           {
-            loader: 'babel-loader',
+            loader: 'babel-loader'
           }
         ]
+      },
+      {
+        test: /\.html$/,
+        loader: 'html-loader'
       }
     ]
   },
@@ -30,5 +35,5 @@ module.exports = {
       template: './public/index.html',
       filename: './index.html'
     })
-  ],
-}
+  ]
+};

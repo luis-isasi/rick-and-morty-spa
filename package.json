@@ -4,8 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "cross-env NODE_ENV=production webpack --config ./internals/webpack.prod.js",
-    "start": "cross-env NODE_ENV=development webpack serve --config ./internals/webpack.dev.js",
+    "build": "npm run prod:build:tailwind && webpack --config ./internals/webpack.prod.js",
+    "build:tailwind" : "npx tailwindcss -i ./src/styles/global.css -o ./public/tailwind-build.css",
+    "prod:build:tailwind": "cross-env NODE_ENV=production npm run build:tailwind",
+    "dev": "cross-env NODE_ENV=development npm run build:tailwind && webpack serve --config ./internals/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -15,10 +17,14 @@
   "license": "ISC",
   "devDependencies": {
     "@babel/core": "^7.14.8",
+    "autoprefixer": "^10.3.1",
     "babel-loader": "^8.2.2",
     "eslint": "^7.32.0",
+    "html-loader": "^2.1.2",
     "html-webpack-plugin": "^5.3.2",
+    "postcss": "^8.3.6",
     "standard": "^16.0.3",
+    "tailwindcss": "^2.2.7",
     "webpack": "^5.47.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
