@@ -1,5 +1,5 @@
 
-import Home from '../views/Home.html';
+import Home from '../controllers/home.controller';
 import NotFound from '../views/NotFound.html';
 import About from '../views/About.html';
 
@@ -12,7 +12,7 @@ const router = async (route) => {
 
   switch (route) {
     case '':
-      content.innerHTML = Home;
+      content.appendChild(await Home());
       break;
     case '#/about':
       content.innerHTML = About;
