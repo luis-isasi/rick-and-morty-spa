@@ -4,6 +4,8 @@
   "description": "",
   "main": "index.js",
   "scripts": {
+    "build": "cross-env NODE_ENV=production webpack --config ./internals/webpack.prod.js",
+    "start": "cross-env NODE_ENV=development webpack serve --config ./internals/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
@@ -14,9 +16,15 @@
   "devDependencies": {
     "@babel/core": "^7.14.8",
     "babel-loader": "^8.2.2",
+    "eslint": "^7.32.0",
     "html-webpack-plugin": "^5.3.2",
+    "standard": "^16.0.3",
     "webpack": "^5.47.1",
     "webpack-cli": "^4.7.2",
     "webpack-dev-server": "^3.11.2"
+  },
+  "dependencies": {
+    "cross-env": "^7.0.3",
+    "eslint-config-standard": "^16.0.3"
   }
 }
