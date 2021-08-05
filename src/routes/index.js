@@ -2,28 +2,24 @@
 import Home from '../controllers/views/home.controller';
 import NotFound from '../views/NotFound.html';
 import About from '../views/About.html';
-
 import Header from '../templates/header.html';
+
+import { isCharacterDetail, getCharacterID } from '../utils';
 
 const router = async (route) => {
   const content = null || document.getElementById('content');
 
   content.innerHTML = '';
 
-  // validamos si es un path que lleva un id de un character
-  const isCharacterDetail = () => {
-    const rgxCharacterDetail = /#\/character\/[0-9]+/i;
-    if (rgxCharacterDetail.test(route)) return route;
-    else return false;
-  };
-
   switch (route) {
     case '':
       content.appendChild(await Home());
       break;
-    case isCharacterDetail():
-      console.log('asfljkasfnkalsnj');
+    case isCharacterDetail(route): {
+      const characterId = getCharacterID(route);
+      // content.appendChild( )
       break;
+    }
     case '#/about':
       content.innerHTML = About;
       break;
