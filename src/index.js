@@ -1,8 +1,8 @@
-import router, { printPage } from './routes';
+import router, { printHeader } from './routes';
 
 router(window.location.hash);
 
-window.addEventListener('load', printPage);
+window.addEventListener('load', printHeader);
 window.addEventListener('hashchange', () => {
   router(window.location.hash);
 });

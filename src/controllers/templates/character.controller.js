@@ -1,16 +1,20 @@
-import CharacterHtml from '../templates/character.html';
+import CharacterHtml from '../../templates/character.html';
 
-const Character = (character) => {
+const CharacterController = (character) => {
   const div = document.createElement('div');
   div.innerHTML = CharacterHtml;
+
+  // add href for a character details
   div.addEventListener('click', () => {
     window.location.href = `#/character/${character.id}`;
   });
 
+  // add character's image
   div.querySelector('#imgCharacter').innerHTML = `
   <img src="${character.image}" class="w-full h-full object-cover" alt="${character.name}" ></img>
   `;
 
+  // add character's datails
   div.querySelector('#content').innerHTML = `
     <h4 id="name" class="font-bold text-2xl mb-1">${character.name}</h4>
     <div class="flex items-center mb-1">
@@ -32,4 +36,4 @@ const Character = (character) => {
   return div;
 };
 
-export default Character;
+export default CharacterController;
