@@ -1,4 +1,5 @@
 import homeView from '../views/Home.html';
+import CharacterController from './character.controller';
 
 const addCharacters = async () => {
   const divElement = document.createElement('div');
@@ -9,12 +10,10 @@ const addCharacters = async () => {
   const response = await window.fetch('https://rickandmortyapi.com/api/character');
   const characters = await response.json();
 
-  console.log({ characters });
-
   characters.results.forEach(character => {
-    container.innerHTML += `
-    <div>${character.name}</div>
-    `;
+    const divCharacter = CharacterController(character);
+
+    container.appendChild(divCharacter);
   });
 
   return divElement;
