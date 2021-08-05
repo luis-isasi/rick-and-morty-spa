@@ -3,14 +3,31 @@ import CharacterHtml from '../templates/character.html';
 const Character = (character) => {
   const div = document.createElement('div');
   div.innerHTML = CharacterHtml;
+  div.addEventListener('click', () => {
+    window.location.href = `#/character/${character.id}`;
+  });
 
   div.querySelector('#imgCharacter').innerHTML = `
-  <img src="${character.image}" ></img>
+  <img src="${character.image}" class="w-full h-full object-cover" alt="${character.name}" ></img>
   `;
-  div.querySelector('#name').textContent = character.name;
-  div.querySelector('#status').textContent = character.status;
-  div.querySelector('#gender').textContent = character.gender;
-  div.querySelector('#species').textContent = character.species;
+
+  div.querySelector('#content').innerHTML = `
+    <h4 id="name" class="font-bold text-2xl mb-1">${character.name}</h4>
+    <div class="flex items-center mb-1">
+      <div class="${character.status === 'Dead' ? 'bg-red-600' : 'bg-green-400'} rounded-full w-2 h-2 mr-2"></div>
+      <span class="font-semibold">${character.status}${' - '}${character.species}${' - '}${character.gender}</span>
+    </div>
+    <p>
+      <span class="font-bold">Origin:</span>
+      <br/>
+      <span  class="ml-2">${character.origin.name}</span>
+    </p>
+    <p>
+      <span class="font-bold">Location:</span>
+      <br/>
+      <span  class="ml-2">${character.location.name}</span>
+    </p>
+  `;
 
   return div;
 };
