@@ -1,7 +1,7 @@
 
-import Home from '../controllers/views/home.controller';
-import NotFound from '../views/NotFound.html';
-import About from '../views/About.html';
+import { HomeController, CharacterDetailController } from '../controllers/views';
+import { About, NotFound } from '../views';
+
 import Header from '../templates/header.html';
 
 import { isCharacterDetail, getCharacterID } from '../utils';
@@ -13,11 +13,11 @@ const router = async (route) => {
 
   switch (route) {
     case '':
-      content.appendChild(await Home());
+      content.appendChild(await HomeController());
       break;
     case isCharacterDetail(route): {
-      const characterId = getCharacterID(route);
-      // content.appendChild( )
+      const id = getCharacterID(route);
+      content.appendChild(await CharacterDetailController(id));
       break;
     }
     case '#/about':

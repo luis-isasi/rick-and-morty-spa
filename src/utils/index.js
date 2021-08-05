@@ -6,8 +6,4 @@ export const isCharacterDetail = (route) => {
 };
 
 // get character's id
-export const getCharacterID = (route) => {
-  const x = route.split('/');
-  console.log({ x });
-  return x[2];
-};
+export const getCharacterID = (route) => route.split('/')[2];
