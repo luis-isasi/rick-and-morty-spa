@@ -1,5 +1,5 @@
 import NotFound from './NotFound.html';
-import About from './About.html';
+import SearchCharacter from './SearchCharacter.html';
 import Home from './Home.html';
 
-export { NotFound, About, Home };
+export { NotFound, SearchCharacter, Home };

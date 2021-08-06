@@ -1,6 +1,6 @@
 
-import { HomeController, CharacterDetailController } from '../controllers/views';
-import { About, NotFound } from '../views';
+import { HomeController, CharacterDetailController, SearchCharacter } from '../controllers/views';
+import { NotFound } from '../views';
 
 import Header from '../templates/header.html';
 
@@ -20,8 +20,8 @@ const router = async (route) => {
       content.appendChild(await CharacterDetailController(id));
       break;
     }
-    case '#/about':
-      content.innerHTML = About;
+    case '#/search':
+      content.appendChild(await SearchCharacter());
       break;
     default:
       content.innerHTML = NotFound;

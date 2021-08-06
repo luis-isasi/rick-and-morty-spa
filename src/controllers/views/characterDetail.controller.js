@@ -1,9 +1,9 @@
+import { getCharacteDetails } from '../../api';
 
 const CharacterDetailController = async (id) => {
   const Div = document.createElement('div');
 
-  const response = await window.fetch(`https://rickandmortyapi.com/api/character/${id}`);
-  const character = await response.json();
+  const character = await getCharacteDetails(id);
 
   Div.innerHTML = `
     <div class="flex flex-col items-center p-5 md:py-10">
