@@ -1,8 +1,8 @@
 import homeView from '../../views/Home.html';
 import characterController from '../templates/character.controller';
 import { getCharacters } from '../../api';
-import nextDouble from '../../icons/source_icons_fast-arrow-right.html';
-import next from '../../icons/source_icons_nav-arrow-right.html';
+import nextDouble from '../../icons/nextDouble.html';
+import next from '../../icons/next.html';
 
 const divElement = document.createElement('div');
 divElement.innerHTML = homeView;
