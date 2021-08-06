@@ -2,15 +2,18 @@ const path = require('path');
 const HtmlWebpackPlugin = require('html-webpack-plugin');
 
 module.exports = {
-  entry: './src/index.js',
+  entry: {
+    app: path.join(__dirname, '../src/index.js')
+  },
   output: {
     publicPath: '/',
-    path: path.resolve(__dirname, 'dist'),
-    filename: 'main.js'
+    path: path.resolve(__dirname, '../dist'),
+    filename: '[name].[fullhash].js',
+    chunkFilename: '[name].[fullhash].js'
   },
   mode: 'production',
   resolve: {
-    extensions: ['.js']
+    extensions: ['.js', '.png', '.jpg']
   },
   module: {
     rules: [
@@ -33,7 +36,10 @@ module.exports = {
     new HtmlWebpackPlugin({
       inject: true,
       template: './public/index.html',
-      filename: './index.html'
+      filename: './index.html',
+      minify: {
+        collapseBooleanAttributes: true
+      }
     })
   ]
 };

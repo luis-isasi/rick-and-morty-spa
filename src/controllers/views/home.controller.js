@@ -1,5 +1,5 @@
 import homeView from '../../views/Home.html';
-import CharacterController from '../templates/character.controller';
+import characterController from '../templates/character.controller';
 import { getCharacters } from '../../api';
 
 const HomeController = async () => {
@@ -13,7 +13,7 @@ const HomeController = async () => {
 
   // adding all characters within container
   characters.results.forEach(character => {
-    container.appendChild(CharacterController(character));
+    container.appendChild(characterController(character));
   });
 
   return divElement;

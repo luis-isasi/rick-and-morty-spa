@@ -4,10 +4,10 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "build": "npm run prod:build:tailwind && webpack --config ./internals/webpack.prod.js",
+    "build": "npm run prod:build:tailwind && cross-env NODE_ENV=production  webpack --config ./internals/webpack.prod.js",
     "build:tailwind" : "npx tailwindcss -i ./src/styles/global.css -o ./public/tailwind-build.css",
     "prod:build:tailwind": "cross-env NODE_ENV=production npm run build:tailwind",
-    "dev": "cross-env NODE_ENV=development npm run build:tailwind && webpack serve --config ./internals/webpack.dev.js",
+    "dev": "npm run build:tailwind && webpack cross-env NODE_ENV=development serve --config ./internals/webpack.dev.js",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "keywords": [
