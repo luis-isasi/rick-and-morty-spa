@@ -27,7 +27,6 @@ const CharacterDetailController = async (id) => {
           <span  class="ml-2">${character.location.name}</span>
         </p>
         <p>Episodes: ${character.episode.length}</p>
-        <a href="#" class="bg-black text-white rounded-md mt-6 py-1 px-5 font-bold text-lg">Regresar</a>
       </div>
     </div>
   `;

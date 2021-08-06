@@ -1,6 +1,8 @@
 <div>
-  <h3>Search characters</h3>
-  <input type="text" id="textSearch" />
-  <button id="btnSearch">buscar</button>
-  <div id="containerSearchCharacters" class="flex flex-wrap justify-center"></div>
+  <h3 class="text-center font-semibold  text-3xl md:text-4xl lg:text-5xl my-5 md:my-6 lg:my-7 xl:my-10">Search characters</h3>
+  <form class="flex flex-col sm:flex-row justify-center items-center">
+    <input type="text" id="textSearch" class="w-44 sm:w-52 md:w-56 lg:w-64 xl:w-80 border border-gray-600 rounded-md h-9 text-lg font-bold px-4 py-2"/>
+    <button type="submit" id="btnSearch" class="bg-black text-white rounded-md py-1 px-4 mt-3 sm:mt-0 sm:ml-3 font-bold text-lg">search</button>
+  </form>
+  <div id="containerSearchCharacters" class="flex flex-wrap justify-center px-1 py-5"></div>
 </div>

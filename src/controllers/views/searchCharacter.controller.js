@@ -22,12 +22,11 @@ const SearchCharacterController = () => {
     // get all character by name
     const characters = await searchCharacters(input.value);
 
-    console.log({ characters });
     if (characters.error) {
       // add message if not results
       const DivNotResults = document.createElement('div');
       DivNotResults.innerHTML = `
-        <p>No hubo resultados :c</p>
+        <p class="font-semibold text-2xl my-10" >No hubo resultados :c</p>
       `;
       container.appendChild(DivNotResults);
       return;
