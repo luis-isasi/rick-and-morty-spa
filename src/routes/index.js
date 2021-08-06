@@ -4,18 +4,23 @@ import { NotFound } from '../views';
 
 import Header from '../templates/header.html';
 
-import { isCharacterDetail, getCharacterID } from '../utils';
+import { validateRouteCharacterDetail, getCharacterID, validateRoutehome, getHomePageID } from '../utils';
 
 const router = async (route) => {
-  const content = null || document.getElementById('content');
+  const content = null || document.getElementById('root');
 
   content.innerHTML = '';
 
   switch (route) {
     case '':
-      content.appendChild(await HomeController());
+      window.location.href = '/#/1';
       break;
-    case isCharacterDetail(route): {
+    case validateRoutehome(route): {
+      const id = getHomePageID(route);
+      content.appendChild(await HomeController(id));
+      break;
+    }
+    case validateRouteCharacterDetail(route): {
       const id = getCharacterID(route);
       content.appendChild(await CharacterDetailController(id));
       break;
