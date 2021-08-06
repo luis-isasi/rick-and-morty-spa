@@ -15,7 +15,8 @@ const SearchCharacterController = () => {
   const btnSearch = DivPage.querySelector('#btnSearch');
 
   // add onClick for search
-  btnSearch.onclick = async () => {
+  btnSearch.onclick = async (e) => {
+    e.preventDefault();
     // clear the container
     container.innerHTML = '';
 
